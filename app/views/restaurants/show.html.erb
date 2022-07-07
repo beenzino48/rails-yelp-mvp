@@ -1,8 +1,19 @@
+<div class="container">
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="https://source.unsplash.com/user/c_v_r"
+  alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= @restaurant.name %></h5>
     <p class="card-text"><%= @restaurant.address %></p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
+    <%= link_to 'Back', restaurants_path %>
+    <%= link_to 'review', new_restaurant_review_path(@restaurant) %>
+    </div>
   </div>
 </div>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+  <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>

@@ -1,5 +1,13 @@
 class ReviewsController < ApplicationController
   # before_action :find_restaurant
+  def index
+    @reviews = Review.all
+  end
+
+  def show
+    @review = Review.find(params[:id])
+  end
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
@@ -20,7 +28,11 @@ class ReviewsController < ApplicationController
 
   private
 
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:content)
   end
 end
