@@ -1,0 +1,17 @@
+<h1>Restaurants page</h1>
+<div class="container">
+<div class="column">
+  <% @restaurants.each do |restaurant| %>
+  <div class="row g-3">
+    <div class="col-6">
+      <div class="card">
+        <img class="card-img-top" src="https://source.unsplash.com/user/c_v_r">
+      <h5 class="card-title"><%= restaurant.name %></h5>
+      <h5 class="card-text"><%= restaurant.address %></h5>
+      <%= link_to "check it out", restaurant_path(restaurant),
+      class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

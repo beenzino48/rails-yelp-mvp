@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
     redirect_to restaurant_path(@restaurant)
     else
+      # this is used if the input for the new model does not match the params or is not valid
       render :new
     end
   end
